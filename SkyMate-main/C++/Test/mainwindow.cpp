@@ -20,39 +20,39 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     // Icons for the left widget menu bar in buttons
-    ui->Home_button->setIcon(QIcon("/Users/User/Documents/SkyMate-main/C++/Icons/Home.png"));
-    ui->Dashboard_button->setIcon(QIcon("/Users/User/Documents/SkyMate-main/C++/Icons/dashboard.png"));
-    ui->Search_button->setIcon(QIcon("/Users/User/Documents/SkyMate-main/C++/Icons/search.png"));
-    ui->Map_button->setIcon(QIcon("/Users/User/Documents/SkyMate-main/C++/Icons/map.png"));
-    ui->Setting_button->setIcon(QIcon("/Users/User/Documents/SkyMate-main/C++/Icons/settings.png"));
+    ui->Home_button->setIcon(QIcon("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/Home.png"));
+    ui->Dashboard_button->setIcon(QIcon("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/dashboard.png"));
+    ui->Search_button->setIcon(QIcon("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/search.png"));
+    ui->Map_button->setIcon(QIcon("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/map.png"));
+    ui->Setting_button->setIcon(QIcon("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/settings.png"));
 
     // Icons for the middle widgets in labels
-    ui->uvindex_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/uvindex_icon.png"));
-    ui->windspeed_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/windspeed_icon.png"));
-    ui->humidity_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/humidity_icon.png"));
-    ui->visibility_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/visibility_icon.png"));
-    ui->feelslike_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/feelslike_icon.png"));
-    ui->chanceofrain_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/chanceofrain_icon.png"));
-    ui->pressure_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/pressure_icon.png"));
-    ui->sunset_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/sunset_icon.png"));
+    ui->uvindex_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/uvindex_icon.png"));
+    ui->windspeed_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/windspeed_icon.png"));
+    ui->humidity_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/humidity_icon.png"));
+    ui->visibility_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/visibility_icon.png"));
+    ui->feelslike_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/feelslike_icon.png"));
+    ui->chanceofrain_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/chanceofrain_icon.png"));
+    ui->pressure_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/pressure_icon.png"));
+    ui->sunset_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/sunset_icon.png"));
 
     // Icons in the middle widget for weathericon indicator
-    ui->weathericon_indicator->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/sun_icon.png"));
+    ui->weathericon_indicator->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/sun_icon.png"));
 
     // Icons in the right widget
     // today's weather widget
-    ui->weathericon_indicator_at_six->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/cloudymightrain_icon.png"));
-    ui->weathericon_indicator_at_nine->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/cloudy_icon.png"));
-    ui->weathericon_indicator_at_twelve->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/sun_icon.png"));
+    ui->weathericon_indicator_at_six->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/cloudymightrain_icon.png"));
+    ui->weathericon_indicator_at_nine->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/cloudy_icon.png"));
+    ui->weathericon_indicator_at_twelve->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/sun_icon.png"));
 
     // 7Day Foorecast
-    ui->monday_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/sun_icon.png"));
-    ui->tuesday_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/sun_icon.png"));
-    ui->wednesday_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/sun_icon.png"));
-    ui->thursday_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/cloudy_icon.png"));
-    ui->friday_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/cloudy_icon.png"));
-    ui->saturday_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/cloudymightrain_icon.png"));
-    ui->sunday_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/sun_icon.png"));
+    ui->monday_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/sun_icon.png"));
+    ui->tuesday_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/sun_icon.png"));
+    ui->wednesday_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/sun_icon.png"));
+    ui->thursday_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/cloudy_icon.png"));
+    ui->friday_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/cloudy_icon.png"));
+    ui->saturday_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/cloudymightrain_icon.png"));
+    ui->sunday_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/sun_icon.png"));
 
     // citylist
     QStringList city_names;
@@ -108,7 +108,7 @@ QNetworkReply* MainWindow::makeApiRequest(const QString &link)
 {
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
     QNetworkRequest request;
-    QUrl url("http://api.openweathermap.org/data/2.5/weather?q=" + link + "&appid=1b292c21d7a36301856ff6bd35fbf720");
+    QUrl url("http://api.openweathermap.org/data/2.5/weather?q=" + link + "&appid=4c2d59ca85c3178d321be386f81a3f5b");
     request.setUrl(url);
 
     QNetworkReply *reply = manager->get(request);
@@ -130,13 +130,17 @@ void MainWindow::updateUIFromApiResponse(QNetworkReply *reply)
 {
     if (reply->error() == QNetworkReply::NoError) {
         QByteArray data = reply->readAll();
+        qDebug() << "API Response2:" << data;
+
         QJsonDocument jsonResponse = QJsonDocument::fromJson(data);
         QJsonObject jsonObject = jsonResponse.object();
 
         double windSpeed = jsonObject["wind"].toObject()["speed"].toDouble();
+        qDebug() << "KUY" << jsonObject["wind"].toObject() << windSpeed;
 
         // Update the correct UI element (windspeed label in this case)
         ui->windspeed_value->setText(QString::number(windSpeed, 'f', 1) + " m/s");
+
     } else {
         qDebug() << "Error: " << reply->errorString();
     }
@@ -154,10 +158,12 @@ void MainWindow::on_comboBox_currentIndexChanged(int index)
     connect(reply, &QNetworkReply::finished, this, [=]() {
         if (reply->error() == QNetworkReply::NoError) {
             QByteArray data = reply->readAll();
+            qDebug() << "API Response1:" << data;
             QJsonDocument jsonResponse = QJsonDocument::fromJson(data);
             QJsonObject jsonObject = jsonResponse.object();
 
             double windSpeed = jsonObject["wind"].toObject()["speed"].toDouble();
+            qDebug() << "KUY" << jsonObject["wind"].toObject();
 
             // Call the updateWindspeedLabel function with the wind speed
             qDebug() << "Wind Speed for Country " << countryName << ": " << windSpeed;
@@ -174,6 +180,7 @@ void MainWindow::on_comboBox_currentIndexChanged(int index)
 void MainWindow::updateWindspeedLabel(double windSpeed)
 {
     ui->windspeed_value->setText(QString::number(windSpeed, 'f', 1) + " m/s");
+
 }
 
 void MainWindow::on_windspeed_value_linkActivated(const QString &link)
@@ -202,9 +209,6 @@ void MainWindow::on_windspeed_value_linkActivated(const QString &link)
         reply->deleteLater();
     });
 }
-
-
-
 
 void MainWindow::on_uvindex_value_linkActivated(const QString &link)
 {
