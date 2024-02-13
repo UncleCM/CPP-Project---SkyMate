@@ -24,6 +24,8 @@ public:
 
 
 public slots:
+    void updateUIFromApiResponse(const QJsonObject &jsonObject);
+
     void updateWindspeedLabel(double windSpeed);
 
 private slots:
@@ -47,7 +49,7 @@ private:
     Ui::MainWindow *ui;
     QStringList city_names;
     QNetworkReply* makeApiRequest(const QString &link);
-    void updateUIFromApiResponse(QNetworkReply* reply);
+    // void updateUIFromApiResponse(QNetworkReply* reply);
 
 };
 #endif // MAINWINDOW_H
