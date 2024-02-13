@@ -20,39 +20,39 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     // Icons for the left widget menu bar in buttons
-    ui->Home_button->setIcon(QIcon("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/Home.png"));
-    ui->Dashboard_button->setIcon(QIcon("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/dashboard.png"));
-    ui->Search_button->setIcon(QIcon("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/search.png"));
-    ui->Map_button->setIcon(QIcon("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/map.png"));
-    ui->Setting_button->setIcon(QIcon("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/settings.png"));
+    ui->Home_button->setIcon(QIcon("/Users/User/Documents/SkyMate-main/C++/Icons/Home.png"));
+    ui->Dashboard_button->setIcon(QIcon("/Users/User/Documents/SkyMate-main/C++/Icons/dashboard.png"));
+    ui->Search_button->setIcon(QIcon("/Users/User/Documents/SkyMate-main/C++/Icons/search.png"));
+    ui->Map_button->setIcon(QIcon("/Users/User/Documents/SkyMate-main/C++/Icons/map.png"));
+    ui->Setting_button->setIcon(QIcon("/Users/User/Documents/SkyMate-main/C++/Icons/settings.png"));
 
     // Icons for the middle widgets in labels
-    ui->uvindex_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/uvindex_icon.png"));
-    ui->windspeed_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/windspeed_icon.png"));
-    ui->humidity_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/humidity_icon.png"));
-    ui->visibility_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/visibility_icon.png"));
-    ui->feelslike_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/feelslike_icon.png"));
-    ui->chanceofrain_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/chanceofrain_icon.png"));
-    ui->pressure_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/pressure_icon.png"));
-    ui->sunset_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/sunset_icon.png"));
+    ui->uvindex_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/uvindex_icon.png"));
+    ui->windspeed_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/windspeed_icon.png"));
+    ui->humidity_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/humidity_icon.png"));
+    ui->visibility_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/visibility_icon.png"));
+    ui->feelslike_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/feelslike_icon.png"));
+    ui->chanceofrain_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/chanceofrain_icon.png"));
+    ui->pressure_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/pressure_icon.png"));
+    ui->sunset_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/sunset_icon.png"));
 
     // Icons in the middle widget for weathericon indicator
-    ui->weathericon_indicator->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/sun_icon.png"));
+    ui->weathericon_indicator->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/sun_icon.png"));
 
     // Icons in the right widget
     // today's weather widget
-    ui->weathericon_indicator_at_six->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/cloudymightrain_icon.png"));
-    ui->weathericon_indicator_at_nine->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/cloudy_icon.png"));
-    ui->weathericon_indicator_at_twelve->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/sun_icon.png"));
+    ui->weathericon_indicator_at_six->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/cloudymightrain_icon.png"));
+    ui->weathericon_indicator_at_nine->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/cloudy_icon.png"));
+    ui->weathericon_indicator_at_twelve->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/sun_icon.png"));
 
     // 7Day Foorecast
-    ui->monday_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/sun_icon.png"));
-    ui->tuesday_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/sun_icon.png"));
-    ui->wednesday_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/sun_icon.png"));
-    ui->thursday_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/cloudy_icon.png"));
-    ui->friday_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/cloudy_icon.png"));
-    ui->saturday_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/cloudymightrain_icon.png"));
-    ui->sunday_icon->setPixmap(QPixmap("/OOP/CPP-Project---SkyMate-UncleCM-patch-2/SkyMate-main/C++/Icons/sun_icon.png"));
+    ui->monday_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/sun_icon.png"));
+    ui->tuesday_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/sun_icon.png"));
+    ui->wednesday_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/sun_icon.png"));
+    ui->thursday_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/cloudy_icon.png"));
+    ui->friday_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/cloudy_icon.png"));
+    ui->saturday_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/cloudymightrain_icon.png"));
+    ui->sunday_icon->setPixmap(QPixmap("/Users/User/Documents/SkyMate-main/C++/Icons/sun_icon.png"));
 
     // citylist
     QStringList city_names;
@@ -104,6 +104,59 @@ void MainWindow::Setting_button()
     qDebug() << "Setting-Button-Clicked";
 }
 
+// QNetworkReply* MainWindow::makeApiRequest(const QString &link)
+// {
+//     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+//     QNetworkRequest request;
+//     QUrl url("http://api.openweathermap.org/data/2.5/weather?q=" + link + "&appid=4c2d59ca85c3178d321be386f81a3f5b");
+//     request.setUrl(url);
+
+//     QNetworkReply *reply = manager->get(request);
+
+//     // Connect the finished signal to a slot for further processing
+//     connect(manager, &QNetworkAccessManager::finished, this, [=](QNetworkReply *finishedReply) {
+//         // Call the function to update UI when the reply is received
+//         updateUIFromApiResponse(finishedReply);
+
+//         // Clean up the network manager and reply
+//         finishedReply->deleteLater();
+//         manager->deleteLater();
+//     });
+
+
+//     return reply;
+// }
+
+// QNetworkReply* MainWindow::makeApiRequest(const QString &link)
+// {
+//     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+//     QNetworkRequest request;
+//     QUrl url("http://api.openweathermap.org/data/2.5/weather?q=" + link + "&appid=4c2d59ca85c3178d321be386f81a3f5b");
+//     request.setUrl(url);
+
+//     QNetworkReply *reply = manager->get(request);
+
+//     // Connect the finished signal to a lambda function for further processing
+//     connect(manager, &QNetworkAccessManager::finished, this, [=](QNetworkReply *finishedReply) {
+//         if (finishedReply->error() == QNetworkReply::NoError) {
+//             QByteArray data = finishedReply->readAll();
+//             QJsonDocument jsonResponse = QJsonDocument::fromJson(data);
+//             QJsonObject jsonObject = jsonResponse.object();  // Declare jsonObject here
+
+//             // Call the function to update UI when the reply is received
+//             updateUIFromApiResponse(jsonObject);
+//         } else {
+//             qDebug() << "Error fetching data for City " << link << ": " << finishedReply->errorString();
+//         }
+
+//         // Clean up the network manager and reply
+//         finishedReply->deleteLater();
+//         manager->deleteLater();
+//     });
+
+//     return reply;
+// }
+
 QNetworkReply* MainWindow::makeApiRequest(const QString &link)
 {
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
@@ -113,10 +166,18 @@ QNetworkReply* MainWindow::makeApiRequest(const QString &link)
 
     QNetworkReply *reply = manager->get(request);
 
-    // Connect the finished signal to a slot for further processing
+    // Connect the finished signal to a lambda function for further processing
     connect(manager, &QNetworkAccessManager::finished, this, [=](QNetworkReply *finishedReply) {
-        // Call the function to update UI when the reply is received
-        updateUIFromApiResponse(finishedReply);
+        if (finishedReply->error() == QNetworkReply::NoError) {
+            QByteArray data = finishedReply->readAll();
+            QJsonDocument jsonResponse = QJsonDocument::fromJson(data);
+            QJsonObject jsonObject = jsonResponse.object();
+
+            // Call the function to update UI when the reply is received
+            updateUIFromApiResponse(jsonObject);
+        } else {
+            qDebug() << "Error fetching data for City " << link << ": " << finishedReply->errorString();
+        }
 
         // Clean up the network manager and reply
         finishedReply->deleteLater();
@@ -126,50 +187,90 @@ QNetworkReply* MainWindow::makeApiRequest(const QString &link)
     return reply;
 }
 
-void MainWindow::updateUIFromApiResponse(QNetworkReply *reply)
+void MainWindow::updateUIFromApiResponse(const QJsonObject &jsonObject)
 {
-    if (reply->error() == QNetworkReply::NoError) {
-        QByteArray data = reply->readAll();
-        qDebug() << "API Response2:" << data;
-
-        QJsonDocument jsonResponse = QJsonDocument::fromJson(data);
-        QJsonObject jsonObject = jsonResponse.object();
-
+    if (!jsonObject.isEmpty()) {
         double windSpeed = jsonObject["wind"].toObject()["speed"].toDouble();
-        qDebug() << "KUY" << jsonObject["wind"].toObject() << windSpeed;
+        qDebug() << "Wind Speed:" << windSpeed;
+        qDebug() << "Formatted Wind Speed:" << QString::number(windSpeed, 'f', 1) + " m/s";
 
         // Update the correct UI element (windspeed label in this case)
         ui->windspeed_value->setText(QString::number(windSpeed, 'f', 1) + " m/s");
 
+        // Add code to update other UI elements with relevant weather data if needed
+        // For example, update temperature, humidity, etc.
     } else {
-        qDebug() << "Error: " << reply->errorString();
+        qDebug() << "Empty JSON object received.";
     }
 }
 
+
+// void MainWindow::updateUIFromApiResponse(const QJsonObject &jsonObject)
+// {
+//     double windSpeed = jsonObject["wind"].toObject()["speed"].toDouble();
+//     qDebug() << "Wind Speed:" << windSpeed;
+//     qDebug() << "Formatted Wind Speed:" << QString::number(windSpeed, 'f', 1) + " m/s";
+
+//     // Update the correct UI element (windspeed label in this case)
+//     ui->windspeed_value->setText(QString::number(windSpeed, 'f', 1) + " m/s");
+
+//     // Add code to update other UI elements with relevant weather data if needed
+//     // For example, update temperature, humidity, etc.
+// }
+
+
+// void MainWindow::on_comboBox_currentIndexChanged(int index)
+// {
+//     QString cityName = ui->comboBox->itemText(index);
+
+//     // Fetch weather data for the selected city
+//     QNetworkReply *reply = makeApiRequest(cityName);
+
+//     // Connect the finished signal to a lambda function that processes the API response
+//     connect(reply, &QNetworkReply::finished, this, [=]() {
+//         if (reply->error() == QNetworkReply::NoError) {
+//             QByteArray data = reply->readAll();
+//             qDebug() << "API Response for City " << cityName << ":" << data;
+
+//             QJsonDocument jsonResponse = QJsonDocument::fromJson(data);
+//             QJsonObject jsonObject = jsonResponse.object();  // Declare jsonObject here
+
+//             // Extract and display relevant information based on the API response
+//             updateUIFromApiResponse(jsonObject);
+
+//         } else {
+//             qDebug() << "Error fetching data for City " << cityName << ": " << reply->errorString();
+//         }
+
+//         // Clean up the network reply
+//         reply->deleteLater();
+//     });
+// }
+
 void MainWindow::on_comboBox_currentIndexChanged(int index)
 {
-    QString countryName = ui->comboBox->itemText(index);
+    QString cityName = ui->comboBox->itemText(index);
 
+    // Reset wind speed label to "N/A"
+    ui->windspeed_value->setText("N/A");
 
-    // Fetch windspeed data for the selected country
-    QNetworkReply *reply = makeApiRequest(countryName);
+    // Fetch weather data for the selected city
+    QNetworkReply *reply = makeApiRequest(cityName);
 
     // Connect the finished signal to a lambda function that updates the windspeed label
     connect(reply, &QNetworkReply::finished, this, [=]() {
         if (reply->error() == QNetworkReply::NoError) {
             QByteArray data = reply->readAll();
-            qDebug() << "API Response1:" << data;
             QJsonDocument jsonResponse = QJsonDocument::fromJson(data);
             QJsonObject jsonObject = jsonResponse.object();
 
-            double windSpeed = jsonObject["wind"].toObject()["speed"].toDouble();
-            qDebug() << "KUY" << jsonObject["wind"].toObject();
+            // Extract and display relevant information based on the API response
+            updateUIFromApiResponse(jsonObject);
 
-            // Call the updateWindspeedLabel function with the wind speed
-            qDebug() << "Wind Speed for Country " << countryName << ": " << windSpeed;
-            updateWindspeedLabel(windSpeed);
         } else {
-            qDebug() << "Error fetching data for Country " << countryName << ": " << reply->errorString();
+            qDebug() << "Error fetching data for City " << cityName << ": " << reply->errorString();
+            // Reset wind speed label to "N/A" in case of an error
+            ui->windspeed_value->setText("N/A");
         }
 
         // Clean up the network reply
@@ -179,9 +280,13 @@ void MainWindow::on_comboBox_currentIndexChanged(int index)
 
 void MainWindow::updateWindspeedLabel(double windSpeed)
 {
-    ui->windspeed_value->setText(QString::number(windSpeed, 'f', 1) + " m/s");
-
+    if (windSpeed > 0) {
+        ui->windspeed_value->setText(QString::number(windSpeed, 'f', 1) + " m/s");
+    } else {
+        ui->windspeed_value->setText("N/A");
+    }
 }
+
 
 void MainWindow::on_windspeed_value_linkActivated(const QString &link)
 {
