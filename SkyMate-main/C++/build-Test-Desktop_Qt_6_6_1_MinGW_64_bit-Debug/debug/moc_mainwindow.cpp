@@ -43,38 +43,34 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
     "updateUIFromApiResponse",
     "",
     "jsonObject",
-    "updateWindspeedLabel",
-    "windSpeed",
+    "updateUIFromHourlyForecast",
+    "forecastWeatherJsonObject",
+    "updateUIFromFiveDayForecast",
     "Map_button",
     "Home_button",
     "Dashboard_button",
     "Search_button",
     "Setting_button",
-    "on_windspeed_value_linkActivated",
-    "link",
     "on_comboBox_currentIndexChanged",
-    "index",
-    "on_uvindex_value_linkActivated"
+    "index"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[32];
+    uint offsetsAndSizes[28];
     char stringdata0[11];
     char stringdata1[24];
     char stringdata2[1];
     char stringdata3[11];
-    char stringdata4[21];
-    char stringdata5[10];
-    char stringdata6[11];
-    char stringdata7[12];
-    char stringdata8[17];
-    char stringdata9[14];
-    char stringdata10[15];
-    char stringdata11[33];
-    char stringdata12[5];
-    char stringdata13[32];
-    char stringdata14[6];
-    char stringdata15[31];
+    char stringdata4[27];
+    char stringdata5[26];
+    char stringdata6[28];
+    char stringdata7[11];
+    char stringdata8[12];
+    char stringdata9[17];
+    char stringdata10[14];
+    char stringdata11[15];
+    char stringdata12[32];
+    char stringdata13[6];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -84,35 +80,31 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(11, 23),  // "updateUIFromApiResponse"
         QT_MOC_LITERAL(35, 0),  // ""
         QT_MOC_LITERAL(36, 10),  // "jsonObject"
-        QT_MOC_LITERAL(47, 20),  // "updateWindspeedLabel"
-        QT_MOC_LITERAL(68, 9),  // "windSpeed"
-        QT_MOC_LITERAL(78, 10),  // "Map_button"
-        QT_MOC_LITERAL(89, 11),  // "Home_button"
-        QT_MOC_LITERAL(101, 16),  // "Dashboard_button"
-        QT_MOC_LITERAL(118, 13),  // "Search_button"
-        QT_MOC_LITERAL(132, 14),  // "Setting_button"
-        QT_MOC_LITERAL(147, 32),  // "on_windspeed_value_linkActivated"
-        QT_MOC_LITERAL(180, 4),  // "link"
-        QT_MOC_LITERAL(185, 31),  // "on_comboBox_currentIndexChanged"
-        QT_MOC_LITERAL(217, 5),  // "index"
-        QT_MOC_LITERAL(223, 30)   // "on_uvindex_value_linkActivated"
+        QT_MOC_LITERAL(47, 26),  // "updateUIFromHourlyForecast"
+        QT_MOC_LITERAL(74, 25),  // "forecastWeatherJsonObject"
+        QT_MOC_LITERAL(100, 27),  // "updateUIFromFiveDayForecast"
+        QT_MOC_LITERAL(128, 10),  // "Map_button"
+        QT_MOC_LITERAL(139, 11),  // "Home_button"
+        QT_MOC_LITERAL(151, 16),  // "Dashboard_button"
+        QT_MOC_LITERAL(168, 13),  // "Search_button"
+        QT_MOC_LITERAL(182, 14),  // "Setting_button"
+        QT_MOC_LITERAL(197, 31),  // "on_comboBox_currentIndexChanged"
+        QT_MOC_LITERAL(229, 5)   // "index"
     },
     "MainWindow",
     "updateUIFromApiResponse",
     "",
     "jsonObject",
-    "updateWindspeedLabel",
-    "windSpeed",
+    "updateUIFromHourlyForecast",
+    "forecastWeatherJsonObject",
+    "updateUIFromFiveDayForecast",
     "Map_button",
     "Home_button",
     "Dashboard_button",
     "Search_button",
     "Setting_button",
-    "on_windspeed_value_linkActivated",
-    "link",
     "on_comboBox_currentIndexChanged",
-    "index",
-    "on_uvindex_value_linkActivated"
+    "index"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -124,7 +116,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -132,28 +124,26 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   74,    2, 0x0a,    1 /* Public */,
-       4,    1,   77,    2, 0x0a,    3 /* Public */,
-       6,    0,   80,    2, 0x08,    5 /* Private */,
-       7,    0,   81,    2, 0x08,    6 /* Private */,
-       8,    0,   82,    2, 0x08,    7 /* Private */,
-       9,    0,   83,    2, 0x08,    8 /* Private */,
-      10,    0,   84,    2, 0x08,    9 /* Private */,
-      11,    1,   85,    2, 0x08,   10 /* Private */,
-      13,    1,   88,    2, 0x08,   12 /* Private */,
-      15,    1,   91,    2, 0x08,   14 /* Private */,
+       1,    1,   68,    2, 0x0a,    1 /* Public */,
+       4,    1,   71,    2, 0x0a,    3 /* Public */,
+       6,    1,   74,    2, 0x0a,    5 /* Public */,
+       7,    0,   77,    2, 0x08,    7 /* Private */,
+       8,    0,   78,    2, 0x08,    8 /* Private */,
+       9,    0,   79,    2, 0x08,    9 /* Private */,
+      10,    0,   80,    2, 0x08,   10 /* Private */,
+      11,    0,   81,    2, 0x08,   11 /* Private */,
+      12,    1,   82,    2, 0x08,   12 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QJsonObject,    3,
-    QMetaType::Void, QMetaType::Double,    5,
+    QMetaType::Void, QMetaType::QJsonObject,    5,
+    QMetaType::Void, QMetaType::QJsonObject,    5,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   12,
-    QMetaType::Void, QMetaType::Int,   14,
-    QMetaType::Void, QMetaType::QString,   12,
+    QMetaType::Void, QMetaType::Int,   13,
 
        0        // eod
 };
@@ -170,9 +160,12 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'updateUIFromApiResponse'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>,
-        // method 'updateWindspeedLabel'
+        // method 'updateUIFromHourlyForecast'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<double, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>,
+        // method 'updateUIFromFiveDayForecast'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QJsonObject, std::false_type>,
         // method 'Map_button'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'Home_button'
@@ -183,15 +176,9 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'Setting_button'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_windspeed_value_linkActivated'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         // method 'on_comboBox_currentIndexChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'on_uvindex_value_linkActivated'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
+        QtPrivate::TypeAndForceComplete<int, std::false_type>
     >,
     nullptr
 } };
@@ -203,15 +190,14 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         (void)_t;
         switch (_id) {
         case 0: _t->updateUIFromApiResponse((*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[1]))); break;
-        case 1: _t->updateWindspeedLabel((*reinterpret_cast< std::add_pointer_t<double>>(_a[1]))); break;
-        case 2: _t->Map_button(); break;
-        case 3: _t->Home_button(); break;
-        case 4: _t->Dashboard_button(); break;
-        case 5: _t->Search_button(); break;
-        case 6: _t->Setting_button(); break;
-        case 7: _t->on_windspeed_value_linkActivated((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 1: _t->updateUIFromHourlyForecast((*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[1]))); break;
+        case 2: _t->updateUIFromFiveDayForecast((*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[1]))); break;
+        case 3: _t->Map_button(); break;
+        case 4: _t->Home_button(); break;
+        case 5: _t->Dashboard_button(); break;
+        case 6: _t->Search_button(); break;
+        case 7: _t->Setting_button(); break;
         case 8: _t->on_comboBox_currentIndexChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 9: _t->on_uvindex_value_linkActivated((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     }
@@ -236,13 +222,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 9;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 9)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 10;
+        _id -= 9;
     }
     return _id;
 }

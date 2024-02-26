@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QPixmap>
 #include <QStringList>
+#include <QDateTime>
 
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
@@ -103,156 +104,222 @@ void MainWindow::Setting_button()
 {
     qDebug() << "Setting-Button-Clicked";
 }
+///////////////////////////////////////////////////////////////////////////////////////
 
-// QNetworkReply* MainWindow::makeApiRequest(const QString &link)
-// {
-//     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-//     QNetworkRequest request;
-//     QUrl url("http://api.openweathermap.org/data/2.5/weather?q=" + link + "&appid=4c2d59ca85c3178d321be386f81a3f5b");
-//     request.setUrl(url);
-
-//     QNetworkReply *reply = manager->get(request);
-
-//     // Connect the finished signal to a slot for further processing
-//     connect(manager, &QNetworkAccessManager::finished, this, [=](QNetworkReply *finishedReply) {
-//         // Call the function to update UI when the reply is received
-//         updateUIFromApiResponse(finishedReply);
-
-//         // Clean up the network manager and reply
-//         finishedReply->deleteLater();
-//         manager->deleteLater();
-//     });
-
-
-//     return reply;
-// }
-
-// QNetworkReply* MainWindow::makeApiRequest(const QString &link)
-// {
-//     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-//     QNetworkRequest request;
-//     QUrl url("http://api.openweathermap.org/data/2.5/weather?q=" + link + "&appid=4c2d59ca85c3178d321be386f81a3f5b");
-//     request.setUrl(url);
-
-//     QNetworkReply *reply = manager->get(request);
-
-//     // Connect the finished signal to a lambda function for further processing
-//     connect(manager, &QNetworkAccessManager::finished, this, [=](QNetworkReply *finishedReply) {
-//         if (finishedReply->error() == QNetworkReply::NoError) {
-//             QByteArray data = finishedReply->readAll();
-//             QJsonDocument jsonResponse = QJsonDocument::fromJson(data);
-//             QJsonObject jsonObject = jsonResponse.object();  // Declare jsonObject here
-
-//             // Call the function to update UI when the reply is received
-//             updateUIFromApiResponse(jsonObject);
-//         } else {
-//             qDebug() << "Error fetching data for City " << link << ": " << finishedReply->errorString();
-//         }
-
-//         // Clean up the network manager and reply
-//         finishedReply->deleteLater();
-//         manager->deleteLater();
-//     });
-
-//     return reply;
-// }
-
+///////////////////////////////////////////////////////////////////////////////////////
 QNetworkReply* MainWindow::makeApiRequest(const QString &link)
 {
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-    QNetworkRequest request;
-    QUrl url("http://api.openweathermap.org/data/2.5/weather?q=" + link + "&appid=4c2d59ca85c3178d321be386f81a3f5b");
-    request.setUrl(url);
 
-    QNetworkReply *reply = manager->get(request);
+    // Current weather request
+    QUrl currentWeatherUrl("http://api.openweathermap.org/data/2.5/weather?q=" + link + "&appid=4c2d59ca85c3178d321be386f81a3f5b");
+    QNetworkRequest currentWeatherRequest(currentWeatherUrl);
 
-    // Connect the finished signal to a lambda function for further processing
-    connect(manager, &QNetworkAccessManager::finished, this, [=](QNetworkReply *finishedReply) {
-        if (finishedReply->error() == QNetworkReply::NoError) {
-            QByteArray data = finishedReply->readAll();
+    QNetworkReply *currentWeatherReply = manager->get(currentWeatherRequest);
+
+    // Connect the finished signal for the current weather request
+    connect(currentWeatherReply, &QNetworkReply::finished, this, [=]() {
+        if (currentWeatherReply->error() == QNetworkReply::NoError) {
+            QByteArray data = currentWeatherReply->readAll();
             QJsonDocument jsonResponse = QJsonDocument::fromJson(data);
             QJsonObject jsonObject = jsonResponse.object();
+            qDebug() << data;
 
             // Call the function to update UI when the reply is received
             updateUIFromApiResponse(jsonObject);
-        } else {
-            qDebug() << "Error fetching data for City " << link << ": " << finishedReply->errorString();
+
+            // Extract the city ID from the current weather response
+            int cityId = jsonObject.value("id").toInt();
+
+            // forecastWeather forecast request
+            QUrl forecastWeatherUrl("http://api.openweathermap.org/data/2.5/forecast?id=" + QString::number(cityId) + "&appid=4c2d59ca85c3178d321be386f81a3f5b");
+            QNetworkRequest forecastWeatherRequest(forecastWeatherUrl);
+
+            QNetworkReply *forecastWeatherReply = manager->get(forecastWeatherRequest);
+
+            // Connect the finished signal for the forecastWeather forecast request
+            connect(forecastWeatherReply, &QNetworkReply::finished, this, [=]() {
+                if (forecastWeatherReply->error() == QNetworkReply::NoError) {
+                    QByteArray forecastWeatherData = forecastWeatherReply->readAll();
+                    QJsonDocument forecastWeatherJsonResponse = QJsonDocument::fromJson(forecastWeatherData);
+                    QJsonObject forecastWeatherJsonObject = forecastWeatherJsonResponse.object();
+                    //qDebug() << "/nforecastWeatherData(fivedays) : " << forecastWeatherData;
+
+                    // Process the forecastWeather forecast data as needed
+                    // updateUIFromforecastWeather(forecastWeatherJsonObject);
+                } else {
+                    qDebug() << "Error fetching forecastWeather forecast data: " << forecastWeatherReply->errorString();
+                }
+
+                // Clean up the forecastWeather forecast reply
+                forecastWeatherReply->deleteLater();
+            });
         }
 
-        // Clean up the network manager and reply
-        finishedReply->deleteLater();
-        manager->deleteLater();
+        // Clean up the current weather reply
+        currentWeatherReply->deleteLater();
     });
 
-    return reply;
+    return currentWeatherReply;
 }
 
 void MainWindow::updateUIFromApiResponse(const QJsonObject &jsonObject)
 {
     if (!jsonObject.isEmpty()) {
+        QString cityname = jsonObject["name"].toString();
+        QString city_abbreviation = jsonObject["sys"].toObject()["country"].toString();
+        QString description = jsonObject["weather"].toArray()[0].toObject()["description"].toString();
+        double temp = jsonObject["main"].toObject()["temp"].toDouble();
         double windSpeed = jsonObject["wind"].toObject()["speed"].toDouble();
+        double visibility = jsonObject["visibility"].toDouble();
+        double humidity = jsonObject["main"].toObject()["humidity"].toDouble();
+        double feelslike = jsonObject["main"].toObject()["feels_like"].toDouble();
+        double pressure = jsonObject["main"].toObject()["pressure"].toDouble();
+        double sunset = jsonObject["sys"].toObject()["sunset"].toDouble();
+
+        // set the sunset time to human time
+        qint64 sunsetTimestamp = static_cast<qint64>(sunset);
+        QDateTime sunsetDateTime = QDateTime::fromSecsSinceEpoch(sunsetTimestamp);
+        QString sunsetTimeString = sunsetDateTime.toString("hh:mm AP");
+
+        qDebug() << "Location:" << cityname << "," << city_abbreviation;
+        qDebug() << "Description:" << description;
+        qDebug() << "Temp:" << (temp - 273.15);
         qDebug() << "Wind Speed:" << windSpeed;
         qDebug() << "Formatted Wind Speed:" << QString::number(windSpeed, 'f', 1) + " m/s";
+        qDebug() << "Humidity:" << humidity << "%";
+        qDebug() << "Visibility:" << visibility / 1000 << "km";
+        qDebug() << "Feelslike:" << QString::number(feelslike - 273.15) + "°c";
+        qDebug() << "Pressure:" << pressure << "hPa";
+        qDebug() << "Sunset time:" << sunsetTimeString;
 
         // Update the correct UI element (windspeed label in this case)
+        QString locationText = cityname + ", " + city_abbreviation;
+        double temp_celsius = (temp - 273.15);
+        double feelslike_celsius = (feelslike - 273.15);
+        double visibility_km = visibility / 1000;
+        ui->location_label->setText(locationText);
         ui->windspeed_value->setText(QString::number(windSpeed, 'f', 1) + " m/s");
-
+        ui->humidity_value->setText(QString::number(humidity, 'f', 0) + " %");
+        ui->visibility_value->setText(QString::number(visibility_km, 'f', 0) + " km");
+        ui->feelslike_value->setText(QString::number(feelslike_celsius, 'f', 1) + " °c");
+        ui->pressure_value->setText(QString::number(pressure, 'f', 0) + " hPa");
+        ui->sunset_value->setText(sunsetTimeString);
+        ui->temperature_label->setText(QString::number(temp_celsius, 'f', 0) + "°c");
         // Add code to update other UI elements with relevant weather data if needed
         // For example, update temperature, humidity, etc.
     } else {
         qDebug() << "Empty JSON object received.";
     }
 }
+void MainWindow::updateUIFromHourlyForecast(const QJsonObject &forecastWeatherJsonObject)
+{
+    qDebug() << "Entering updateUIFromHourlyForecast function/n/n/n/n";
+
+    if (!forecastWeatherJsonObject.isEmpty()) {
+        qDebug() << "Forecast data is not empty. Continuing...";
+
+        // Process the hourly forecast data as needed
+        qDebug() << "Before extracting temperature:" << forecastWeatherJsonObject["list"].toArray()[0];
+        double tempAtSix = forecastWeatherJsonObject["list"].toArray()[0].toObject()["main"].toObject()["temp"].toDouble();
+        qDebug() << "After extracting temperature:" << tempAtSix;
+
+        // Update the UI for each hour, e.g., add to a chart or display in a list
+        // Example: ui->hourlyTemperatureChart->addData(hourlyTemp);
+    } else {
+        qDebug() << "Empty hourly forecast JSON object received.";
+    }
+
+    qDebug() << "Exiting updateUIFromHourlyForecast function";
+}
 
 
-// void MainWindow::updateUIFromApiResponse(const QJsonObject &jsonObject)
+
+// void MainWindow::updateUIFromFiveDayForecast(const QJsonObject &forecastWeatherJsonObject)
 // {
-//     double windSpeed = jsonObject["wind"].toObject()["speed"].toDouble();
-//     qDebug() << "Wind Speed:" << windSpeed;
-//     qDebug() << "Formatted Wind Speed:" << QString::number(windSpeed, 'f', 1) + " m/s";
+//     if (!forecastWeatherJsonObject.isEmpty()) {
+//         // Process the five-day forecast data as needed
+//         // Extract relevant information from the JSON object and update the UI
 
-//     // Update the correct UI element (windspeed label in this case)
-//     ui->windspeed_value->setText(QString::number(windSpeed, 'f', 1) + " m/s");
-
-//     // Add code to update other UI elements with relevant weather data if needed
-//     // For example, update temperature, humidity, etc.
-// }
-
-
-// void MainWindow::on_comboBox_currentIndexChanged(int index)
-// {
-//     QString cityName = ui->comboBox->itemText(index);
-
-//     // Fetch weather data for the selected city
-//     QNetworkReply *reply = makeApiRequest(cityName);
-
-//     // Connect the finished signal to a lambda function that processes the API response
-//     connect(reply, &QNetworkReply::finished, this, [=]() {
-//         if (reply->error() == QNetworkReply::NoError) {
-//             QByteArray data = reply->readAll();
-//             qDebug() << "API Response for City " << cityName << ":" << data;
-
-//             QJsonDocument jsonResponse = QJsonDocument::fromJson(data);
-//             QJsonObject jsonObject = jsonResponse.object();  // Declare jsonObject here
-
-//             // Extract and display relevant information based on the API response
-//             updateUIFromApiResponse(jsonObject);
-
-//         } else {
-//             qDebug() << "Error fetching data for City " << cityName << ": " << reply->errorString();
+//         // Example: Update daily temperature values
+//         QJsonArray dailyList = forecastWeatherJsonObject["list"].toArray();
+//         for (const QJsonValue &dailyData : dailyList) {
+//             double dailyTemp = dailyData.toObject()["main"].toObject()["temp"].toDouble();
+//             // Update the UI for each day, e.g., add to a chart or display in a list
+//             // Example: ui->dailyTemperatureChart->addData(dailyTemp);
 //         }
-
-//         // Clean up the network reply
-//         reply->deleteLater();
-//     });
+//     } else {
+//         qDebug() << "Empty five-day forecast JSON object received.";
+//     }
 // }
+void MainWindow::updateUIFromFiveDayForecast(QJsonObject forecastWeatherJsonObject)
+{
+    if (!forecastWeatherJsonObject.isEmpty()) {
+        // Process the five-day forecast data as needed
+        // Extract relevant information from the JSON object and update the UI
 
+        // Example: Update daily temperature values
+        QJsonArray dailyList = forecastWeatherJsonObject["list"].toArray();
+
+        // Clear existing data from UI elements
+        ui->monday_description->clear();
+        ui->tuesday_description->clear();
+        ui->wednesday_description->clear();
+        ui->thursday_description->clear();
+        ui->friday_description->clear();
+        ui->saturday_description->clear();
+        ui->sunday_description->clear();
+
+        for (const QJsonValue &dailyData : dailyList) {
+            QJsonObject dailyObject = dailyData.toObject();
+            double dailyTemp = dailyObject["main"].toObject()["temp"].toDouble();
+            QString dateString = dailyObject["dt_txt"].toString();
+            qDebug() << "Date" << dateString;
+
+            // Parse the date string into QDate
+            QDate date;
+            if (dateString.contains('-')) {
+                date = QDate::fromString(dateString, "yyyy-MM-dd");
+            } else if (dateString.contains('/')) {
+                date = QDate::fromString(dateString, "yyyy/MM/dd");
+            } else {
+                qDebug() << "Unknown date format in API data.";
+                continue;
+            }
+
+            // Update the UI for each day with the daily temperature
+            QString temperatureText = QString::number(dailyTemp - 273.15, 'f', 0) + "°C";
+
+            // Update the corresponding QLabel based on the day of the week
+            if (date.dayOfWeek() == Qt::Monday) {
+                ui->monday_description->setText(temperatureText);
+                qDebug() << "Temp: " << temperatureText;
+            } else if (date.dayOfWeek() == Qt::Tuesday) {
+                ui->tuesday_description->setText(temperatureText);
+            } else if (date.dayOfWeek() == Qt::Wednesday) {
+                ui->wednesday_description->setText(temperatureText);
+            } else if (date.dayOfWeek() == Qt::Thursday) {
+                ui->thursday_description->setText(temperatureText);
+            } else if (date.dayOfWeek() == Qt::Friday) {
+                ui->friday_description->setText(temperatureText);
+            } else if (date.dayOfWeek() == Qt::Saturday) {
+                ui->saturday_description->setText(temperatureText);
+            } else if (date.dayOfWeek() == Qt::Sunday) {
+                ui->sunday_description->setText(temperatureText);
+            }
+        }
+    } else {
+        qDebug() << "Empty five-day forecast JSON object received.";
+    }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_comboBox_currentIndexChanged(int index)
 {
     QString cityName = ui->comboBox->itemText(index);
-
-    // Reset wind speed label to "N/A"
-    ui->windspeed_value->setText("N/A");
 
     // Fetch weather data for the selected city
     QNetworkReply *reply = makeApiRequest(cityName);
@@ -266,6 +333,7 @@ void MainWindow::on_comboBox_currentIndexChanged(int index)
 
             // Extract and display relevant information based on the API response
             updateUIFromApiResponse(jsonObject);
+            updateUIFromFiveDayForecast(jsonObject);
 
         } else {
             qDebug() << "Error fetching data for City " << cityName << ": " << reply->errorString();
@@ -277,46 +345,8 @@ void MainWindow::on_comboBox_currentIndexChanged(int index)
         reply->deleteLater();
     });
 }
+///////////////////////////////////////////////////////////////////////////////////////
 
-void MainWindow::updateWindspeedLabel(double windSpeed)
-{
-    if (windSpeed > 0) {
-        ui->windspeed_value->setText(QString::number(windSpeed, 'f', 1) + " m/s");
-    } else {
-        ui->windspeed_value->setText("N/A");
-    }
-}
+///////////////////////////////////////////////////////////////////////////////////////
 
-
-void MainWindow::on_windspeed_value_linkActivated(const QString &link)
-{
-    qDebug() << "Link Activated for City: " << link;
-
-    QNetworkReply *reply = makeApiRequest(link);
-
-    // Connect the finished signal to a lambda function that updates the windspeed label
-    connect(reply, &QNetworkReply::finished, this, [=]() {
-        if (reply->error() == QNetworkReply::NoError) {
-            QByteArray data = reply->readAll();
-            QJsonDocument jsonResponse = QJsonDocument::fromJson(data);
-            QJsonObject jsonObject = jsonResponse.object();
-
-            double windSpeed = jsonObject["wind"].toObject()["speed"].toDouble();
-
-            // Call the updateWindspeedLabel function with the wind speed
-            qDebug() << "Wind Speed for City " << link << ": " << windSpeed;
-            updateWindspeedLabel(windSpeed);
-        } else {
-            qDebug() << "Error fetching data for City " << link << ": " << reply->errorString();
-        }
-
-        // Clean up the network reply
-        reply->deleteLater();
-    });
-}
-
-void MainWindow::on_uvindex_value_linkActivated(const QString &link)
-{
-
-}
 
