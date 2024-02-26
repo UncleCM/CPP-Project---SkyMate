@@ -8,6 +8,8 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 
+using namespace std;
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -26,7 +28,15 @@ public:
 public slots:
     void updateUIFromApiResponse(const QJsonObject &jsonObject);
 
-    void updateWindspeedLabel(double windSpeed);
+    void updateUIFromHourlyForecast(const QJsonObject &forecastWeatherJsonObject);
+
+    void updateUIFromFiveDayForecast(QJsonObject forecastWeatherJsonObject);
+
+    // void updateLocationLabel(QString LocationText);
+
+    // void updateWindspeedLabel(double windSpeed);
+
+    // void updateHumidityLabel(double humidity);
 
 private slots:
     void Map_button();
@@ -39,11 +49,13 @@ private slots:
 
     void Setting_button();
 
-    void on_windspeed_value_linkActivated(const QString &link);
-
     void on_comboBox_currentIndexChanged(int index);
 
-    void on_uvindex_value_linkActivated(const QString &link);
+    // void on_windspeed_value_linkActivated(const QString &link);
+
+    // void on_location_label_linkActivated(const QString &link);
+
+    // void on_humidity_value_linkActivated(const QString &link);
 
 private:
     Ui::MainWindow *ui;

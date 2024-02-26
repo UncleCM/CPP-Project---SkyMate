@@ -65,10 +65,10 @@ color: rgb(97, 97, 97);</string>
       <string>Enter Location (ex. Bangkok)</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_2">
+    <widget class="QLabel" name="location_label">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>20</x>
        <y>80</y>
        <width>131</width>
        <height>21</height>
@@ -86,7 +86,7 @@ color: rgb(97, 97, 97);</string>
       <string notr="true">color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
-      <string>Chance of Rain: 0%</string>
+      <string>Location:</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -95,7 +95,7 @@ color: rgb(97, 97, 97);</string>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>20</x>
        <y>50</y>
        <width>221</width>
        <height>31</height>
@@ -118,7 +118,7 @@ color: rgb(97, 97, 97);</string>
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_3">
+    <widget class="QLabel" name="temperature_label">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -242,7 +242,7 @@ border-radius: 10px;</string>
        <string notr="true">color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>3</string>
+       <string>N/A</string>
       </property>
      </widget>
     </widget>
@@ -322,9 +322,12 @@ border-radius: 10px;</string>
        <string notr="true">color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>0.2 km/h</string>
+       <string>N/A</string>
       </property>
      </widget>
+     <zorder>label_7</zorder>
+     <zorder>windspeed_value</zorder>
+     <zorder>windspeed_icon</zorder>
     </widget>
     <widget class="QFrame" name="Humidity_frame">
      <property name="geometry">
@@ -402,7 +405,7 @@ border-radius: 10px;</string>
        <string notr="true">color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>3</string>
+       <string>N/A</string>
       </property>
      </widget>
     </widget>
@@ -466,7 +469,7 @@ border-radius: 10px;</string>
       <property name="geometry">
        <rect>
         <x>50</x>
-        <y>30</y>
+        <y>40</y>
         <width>91</width>
         <height>16</height>
        </rect>
@@ -482,7 +485,7 @@ border-radius: 10px;</string>
        <string notr="true">color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>12 km</string>
+       <string>N/A</string>
       </property>
      </widget>
     </widget>
@@ -562,7 +565,7 @@ border-radius: 10px;</string>
        <string notr="true">color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>30°c</string>
+       <string>N/A</string>
       </property>
      </widget>
     </widget>
@@ -642,7 +645,7 @@ border-radius: 10px;</string>
        <string notr="true">color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>1008 hPa</string>
+       <string>N/A</string>
       </property>
      </widget>
     </widget>
@@ -722,7 +725,7 @@ border-radius: 10px;</string>
        <string notr="true">color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>0%</string>
+       <string>N/A</string>
       </property>
      </widget>
     </widget>
@@ -802,7 +805,7 @@ border-radius: 10px;</string>
        <string notr="true">color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>20:58</string>
+       <string>N/A</string>
       </property>
      </widget>
     </widget>
@@ -1314,7 +1317,7 @@ border-radius: 10px;</string>
       </property>
      </widget>
     </widget>
-    <widget class="QFrame" name="sevenday_frame">
+    <widget class="QFrame" name="fiveday_frame">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -1643,7 +1646,7 @@ border-radius: 10px;
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="moday_description">
+     <widget class="QLabel" name="monday_description">
       <property name="geometry">
        <rect>
         <x>210</x>
@@ -1731,7 +1734,7 @@ border-radius: 10px;
        <string>Sunny</string>
       </property>
      </widget>
-     <widget class="QLabel" name="friday_desctiption">
+     <widget class="QLabel" name="friday_description">
       <property name="geometry">
        <rect>
         <x>210</x>
@@ -1819,7 +1822,7 @@ border-radius: 10px;
        <string>High/Low</string>
       </property>
      </widget>
-     <widget class="QLabel" name="moday_temp">
+     <widget class="QLabel" name="monday_temp">
       <property name="geometry">
        <rect>
         <x>310</x>
